@@ -22,7 +22,7 @@ def final_stage_cost(c, L):
 
 T = 10
 cs, Ls, Ps = liability_control(
-    c1, L1, T, stage_cost, final_stage_cost, verbose=True, solver='MOSEK')
+    c1, L1, T, stage_cost, final_stage_cost, verbose=True)
 base_noncleared = (Ls[-1] > 1e-1).sum()
 base_sum = Ls[-1].sum()
 
@@ -44,7 +44,7 @@ for t in range(T - 1):
     constraints += [summer @ Ps[t] <= cs[t]]
 
 prob = cp.Problem(cp.Minimize(objective), constraints)
-result = prob.solve(solver=cp.MOSEK, verbose=True)
+result = prob.solve(verbose=True)
 ncvx_noncleared = (Ls[-1].value > 1e-1).sum()
 ncvx_sum = Ls[-1].value.sum()
 

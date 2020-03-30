@@ -24,7 +24,7 @@ def final_stage_cost(c, L):
 
 T = 20
 cs, Ls, Ps = liability_control(
-    c1, L1, T, stage_cost, final_stage_cost, solver='MOSEK')
+    c1, L1, T, stage_cost, final_stage_cost)
 print("Entities non-cleared", (Ls[-1] > 1e-1).sum())
 
 cs_baseline = [np.copy(c1)]

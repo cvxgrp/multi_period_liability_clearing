@@ -16,7 +16,6 @@ mosek
 ```
 
 To use the MOSEK solver, you will need to follow instructions listed [here](https://docs.mosek.com/9.1/install/installation.html).
-Otherwise, you will have to remove all instances of `solver="MOSEK"`.
 
 ## Examples
 The examples in section 6.1 are in `liability_clearing.py`.

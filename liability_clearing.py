@@ -16,8 +16,7 @@ cs_tot, Ls_tot, Ps_tot = liability_control(c1, L1, T,
                                            stage_cost=lambda c, L, P, t: (
                                                cp.sum(L), []),
                                            final_stage_cost=lambda c, L: (
-                                               0, [L == 0]),
-                                           solver='MOSEK')
+                                               0, [L == 0]))
 
 # Risk-weighted liability
 w1 = c1 - L1 @ np.ones(n) + L1.T @ np.ones(n)
@@ -26,8 +25,7 @@ cs_risk, Ls_risk, Ps_risk = liability_control(c1, L1, T,
                                               stage_cost=lambda c, L, P, t: (
                                                   (summerT @ L) @ r, []),
                                               final_stage_cost=lambda c, L: (
-                                                  (summerT @ L) @ r, [L == 0]),
-                                              solver='MOSEK')
+                                                  (summerT @ L) @ r, [L == 0]))
 
 # Total squared payment
 lams = np.append(0, np.logspace(0, 2, 3))
@@ -40,7 +38,7 @@ for lam in lams:
     def final_stage_cost(c, L):
         return cp.sum(L), [L == 0]
     cs_temp, Ls_temp, Ps_temp = liability_control(
-        c1, L1, T, stage_cost, final_stage_cost, solver='MOSEK')
+        c1, L1, T, stage_cost, final_stage_cost)
 
     Ls_sum.append([L.sum() for L in Ls_temp])
     Ps_sum.append([P.sum() for P in Ps_temp])
