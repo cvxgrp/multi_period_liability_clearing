@@ -33,13 +33,13 @@ $ python liability_clearing.py
 This repository carries an Apache 2.0 license.
 
 ## Citing
-If you use cvxpylayers for research, please cite our accompanying [NeurIPS paper](http://web.stanford.edu/~boyd/papers/pdf/diff_cvxpy.pdf):
+If you use multi_period_liability_clearing for research, please cite our accompanying [paper](http://web.stanford.edu/~boyd/papers/pdf/multi_period_liability_clearing.pdf):
 
 ```
-@inproceedings{cvxpylayers2019,
-  author={Agrawal, A. and Amos, B. and Barratt, S. and Boyd, S. and Diamond, S. and Kolter, Z.},
-  title={Differentiable Convex Optimization Layers},
-  booktitle={Advances in Neural Information Processing Systems},
-  year={2019},
+@article{barratt2020multiperiod,
+  author={Barratt, Shane and Boyd, Stephen},
+  title={Multi-period liability clearing via convex optimal control},
+  journal={Manuscript}.
+  year={2020},
 }
 ```
